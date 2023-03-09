@@ -72,6 +72,8 @@ public class BottomNavigationUi extends LinearLayout implements View.OnClickList
     private float shadowDy;
     private int shadowColor;
 
+    private NavClickListener clickListener;
+
     public BottomNavigationUi(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
         this.setWillNotDraw(false);
@@ -88,15 +90,22 @@ public class BottomNavigationUi extends LinearLayout implements View.OnClickList
     public void onClick(View v) {
         if (R.id.img_btn_first == v.getId()) {
             selectPage((ImageView) v, 1);
+            clickListener.clickNavFirst();
         }
         if (R.id.img_btn_second == v.getId()) {
             selectPage((ImageView) v, 2);
+            clickListener.clickNavSecond();
         }
         if (R.id.img_btn_third == v.getId()) {
             selectPage((ImageView) v, 3);
+            clickListener.clickNavThird();
         }
         if (R.id.img_btn_fourth == v.getId()) {
             selectPage((ImageView) v, 4);
+            clickListener.clickNavFourth();
+        }
+        if (R.id.img_btn_center == v.getId()) {
+            clickListener.clickCenter();
         }
     }
 
@@ -432,6 +441,17 @@ public class BottomNavigationUi extends LinearLayout implements View.OnClickList
         this.shadowDx = shadowDx;
         this.shadowDy = shadowDy;
         this.shadowColor = shadowColor;
+        return this;
+    }
+
+    /**
+     * 设置导航栏点击事件监听
+     *
+     * @param listener 点击事件监听
+     * @return 导航对象
+     */
+    public BottomNavigationUi setNavClickListener(NavClickListener listener) {
+        this.clickListener = listener;
         return this;
     }
 }
