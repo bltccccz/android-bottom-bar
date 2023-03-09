@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
                 //设置导航图片（资源的形式)
 //                .setBtnImage(R.drawable.nav, R.drawable.nav, R.drawable.nav, R.drawable.nav, R.drawable.nav)
                 //设置图片距离上下左右的距离，已经图片大小
-                .setImageContainer(10, 2, 55, 90)
+//                .setImageContainer(10, 2, 55, 90)
                 //填充导航，设置曲线起点，曲线高度，绘制高度（一般等于导航高度)，绘制背景颜色，边线阴影和颜色
                 .drawBessel(3f, 10, 60, Color.GRAY, 0, 0, 0, Color.GRAY)
                 //构建自定义按钮

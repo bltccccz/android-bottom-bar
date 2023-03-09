@@ -5,6 +5,7 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Path;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -72,7 +73,32 @@ public class BottomNavigationUi extends LinearLayout implements View.OnClickList
     private float shadowDy;
     private int shadowColor;
 
-    private NavClickListener clickListener;
+    private NavClickListener clickListener = new NavClickListener() {
+        @Override
+        public void clickNavFirst() {
+            Log.d("navigation", String.valueOf(1));
+        }
+
+        @Override
+        public void clickNavSecond() {
+            Log.d("navigation", String.valueOf(2));
+        }
+
+        @Override
+        public void clickNavThird() {
+            Log.d("navigation", String.valueOf(3));
+        }
+
+        @Override
+        public void clickNavFourth() {
+            Log.d("navigation", String.valueOf(4));
+        }
+
+        @Override
+        public void clickCenter() {
+            Log.d("navigation", "mid");
+        }
+    };
 
     public BottomNavigationUi(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
@@ -191,6 +217,7 @@ public class BottomNavigationUi extends LinearLayout implements View.OnClickList
         this.imgBtnSecond.setOnClickListener(this);
         this.imgBtnThird.setOnClickListener(this);
         this.imgBtnFourth.setOnClickListener(this);
+        this.imgBtnCenter.setOnClickListener(this);
 
         this.btnLabelFirst = view.findViewById(R.id.btn_label_first);
         this.btnLabelSecond = view.findViewById(R.id.btn_label_second);
